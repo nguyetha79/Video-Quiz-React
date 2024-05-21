@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     async function fetchQuizzes() {
       try {
-        const response = await fetch('http://localhost:5001/quizzes/'); 
+        const response = await fetch('https://video-quiz-react.onrender.com/quizzes/'); 
         if (!response.ok) {
           throw new Error('Failed to fetch quizzes');
         }
