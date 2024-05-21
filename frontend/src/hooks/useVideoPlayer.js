@@ -54,7 +54,7 @@ const useVideoPlayer = (videoRef) => {
     minutes = minutes < 10 ? `0${minutes}` : minutes;
     hours = hours < 10 ? `0${hours}` : hours;
 
-    if (hours == 0) {
+    if (hours === 0) {
       return `${minutes}:${seconds}`;
     }
     return `${hours}:${minutes}:${seconds}`;
