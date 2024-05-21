@@ -38,10 +38,11 @@ const VideoPlayer = React.forwardRef(
     } = useVideoPlayer(ref);
 
     useEffect(() => {
-      if (ref.current) {
-        ref.current.addEventListener("timeupdate", onTimeUpdate);
+      const currentRef = ref.current;
+      if (currentRef) {
+        currentRef.addEventListener("timeupdate", onTimeUpdate);
         return () => {
-          ref.current.removeEventListener("timeupdate", onTimeUpdate);
+          currentRef.removeEventListener("timeupdate", onTimeUpdate);
         };
       }
     }, [onTimeUpdate, ref]);
@@ -62,10 +63,7 @@ const VideoPlayer = React.forwardRef(
           >
             <div className="progress-area">
               <span>{formatTime(currentTime)}</span>
-              <div
-                className="progress-bar"
-                ref={progressBarRef}
-              ></div>
+              <div className="progress-bar" ref={progressBarRef}></div>
             </div>
           </div>
           <ul className="video-controls">
